@@ -5,7 +5,7 @@ pipeline {
 		      label {
 			  
 			      label "slave-1"
-				  customWrokspace "/mnt/project/game-of-life"
+				  customWrokspace "/mnt/game-of-life"
 			  }
 		  }
 		  
