@@ -17,7 +17,7 @@ pipeline {
 				 
 				 sh "sudo rm -rf /root/.m2/repository"
 				 sh "sudo mvn clean install"
-				 sh "sudo docker run -itdp 80:80 -v /mnt/project/gameoflife-web/target/gameoflife.war:/usr/local/apache2/htdocs --name gameoflife tomcat"
+				 sh "sudo docker run -itdp 80:8080 -v /mnt/project/gameoflife-web/target/gameoflife.war:/usr/local/apache2/htdocs --name gameoflife tomcat"
 				 
 			
 				 }
