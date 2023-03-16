@@ -16,10 +16,10 @@ pipeline {
 			     steps {
 				// sh "sudo docker stop gameoflife"
 				// sh "sudo docker rm gameoflife"
-				 sh ""
-				 sh "sudo mvn clean install"
-				 sh "sudo docker run -itdp 8080:8080 -v /mnt/project/gameoflife-web/target:/usr/local/tomcat/webapps --name gameoflife tomcat:9.0.73"
-				 
+				 sh " mvn clean install"
+				 sh "git clone https://github.com/patilpradip3131/dockerfile.git"
+				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project/dockerfile"
+				 				 
 			
 				 }
 			 
