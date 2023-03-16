@@ -19,7 +19,7 @@ pipeline {
 				 sh " mvn clean install"
 				 sh "git clone https://github.com/patilpradip3131/dockerfile.git"
 				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project/dockerfile"
-				 sh "docker build -t test:1.0 /mnt/project/dockerfile/""
+				 sh "docker build -t test:1.0 /mnt/project/dockerfile/"
 				 sh "docker run -idtp 8080:8080 --name server test:1.0"			 
 			
 				 }
