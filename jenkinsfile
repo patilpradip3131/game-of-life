@@ -14,7 +14,7 @@ pipeline {
 		     stage ("deploy game-of-") {
 			 
 			     steps {
-				// sh "sudo docker stop gameoflife"
+				 sh "docker stop server"
 				 sh "docker rm server"
 				 sh "rm -rf /mnt/project/dockerfile"
 				 sh " mvn install"
