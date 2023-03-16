@@ -14,9 +14,9 @@ pipeline {
 		     stage ("deploy game-of-") {
 			 
 			     steps {
-				 sh "sudo docker stop gameoflife"
-				 sh "sudo docker rm gameoflife"
-				 sh "sudo rm -rf /root/.m2/repository"
+				// sh "sudo docker stop gameoflife"
+				// sh "sudo docker rm gameoflife"
+				 sh ""
 				 sh "sudo mvn clean install"
 				 sh "sudo docker run -itdp 8080:8080 -v /mnt/project/gameoflife-web/target:/usr/local/tomcat/webapps --name gameoflife tomcat:9.0.73"
 				 
