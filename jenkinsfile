@@ -19,6 +19,7 @@ pipeline {
 				 //sh "rm -rf /mnt/project/dockerfile"
 				 sh "mvn install"
 				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project/yaml"
+				 sh "docker-compose up -d"
 				 			
 				 }
 			 
