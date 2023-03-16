@@ -16,7 +16,8 @@ pipeline {
 			     steps {
 				// sh "sudo docker stop gameoflife"
 				// sh "sudo docker rm gameoflife"
-				 sh " mvn clean install"
+				 sh "rm -rf /mnt/project/*" 
+				 sh " mvn install"
 				 sh "git clone https://github.com/patilpradip3131/dockerfile.git"
 				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project/dockerfile"
 				 sh "docker build -t test:1.0 /mnt/project/dockerfile/"
