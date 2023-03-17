@@ -5,5 +5,5 @@ services:
     ports:
       - "8082:8080"
     volumes:
-      - "/mnt/project/gameoflife.war:/usr/local/tomcat/webapss"    
+      - "/mnt/project:/usr/local/tomcat/webapss"    
 
