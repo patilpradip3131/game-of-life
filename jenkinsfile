@@ -15,7 +15,7 @@ pipeline {
 			 
 			     steps {
 				 //sh "docker-compose down"
-				 sh "rm -rf /mnt/project/*"
+				 //sh "rm -rf /mnt/project/*"
 				 sh "mvn install"
 				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project"
 				 sh "docker-compose up -d"
