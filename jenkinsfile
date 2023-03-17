@@ -14,8 +14,7 @@ pipeline {
 		     stage ("deploy game-of") {
 			 
 			     steps {
-				 //sh "docker stop server"
-				 //sh "docker rm server"
+				 //sh "docker-compose down"
 				 //sh "rm -rf /mnt/project/dockerfile"
 				 sh "mvn install"
 				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project"
