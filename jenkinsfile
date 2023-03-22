@@ -5,7 +5,7 @@ pipeline {
 		      label {
 			  
 			      label "built-in"
-				  customWorkspace "/mnt/project/"
+				  customWorkspace "/mnt/data"
 			  }
 		  }
 		  
@@ -14,11 +14,9 @@ pipeline {
 		     stage ("deploy game-of") {
 			 
 			     steps {
-				 sh "docker-compose down"
-				 //sh "rm -rf /mnt/project/*"
-				 sh "mvn install"
-				 sh "cp /mnt/project/gameoflife-web/target/gameoflife.war /mnt/project"
-				 sh "docker-compose up -d"
+				
+				sh " mvn install"
+				sh "ansible-playbook tomcat.yaml"
 				 			
 				 }
 			 
