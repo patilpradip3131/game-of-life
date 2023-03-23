@@ -5,18 +5,19 @@ pipeline {
 		      label {
 			  
 			      label "built-in"
-				  customWorkspace "/mnt/data"
+				  customWorkspace "/mnt/project"
 			  }
 		  }
 		  
 		  stages {
 		  
-		     stage ("deploy game-of") {
+		     stage ("deployg ame-of-life") {
 			 
 			     steps {
 				sh "sudo yum install maven -y"
 				sh " mvn install"
-				sh "ansible-playbook tomcat.yaml"
+				sh "ansible-playbook tomcat.yaml  -e ansible_python_interpreter=/usr/bin/python3.7"
+"
 				 			
 				 }
 			 
