@@ -17,7 +17,6 @@ pipeline {
 				sh "sudo yum install maven -y"
 				sh " mvn install"
 				sh "ansible-playbook tomcat.yaml  -e ansible_python_interpreter=/usr/bin/python3.7"
-"
 				 			
 				 }
 			 
