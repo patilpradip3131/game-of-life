@@ -26,4 +26,4 @@
       command: chmod -R 777 /mnt
 
     - name: start tomcat
-      command: cd  /mnt/apache-tomcat-9.0.73/bin/ | ./startup.sh
+      command: cd  /mnt/apache-tomcat-9.0.73/bin | ./startup.sh
