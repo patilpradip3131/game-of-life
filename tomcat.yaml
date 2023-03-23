@@ -19,7 +19,7 @@
         ports:
           - "8082:8080"
         volumes:
-          - /mnt/project/gameoflife.war:/usr/local/tomcat/webapps
+          - /mnt/project/mnt/project/gameoflife-web/target/gameoflife.war:/usr/local/tomcat/webapps
         state: started
         restart_policy: always
 
