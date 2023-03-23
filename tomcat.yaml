@@ -17,7 +17,7 @@
         name: tomcat
         image: tomcat:9
         ports:
-          - "8080:8080"
+          - "8082:8080"
         volumes:
           - /mnt/project/gameoflife.war:/usr/local/tomcat/webapps
         state: started
