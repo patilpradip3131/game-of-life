@@ -1,5 +1,5 @@
 ---
-- hosts: devlinux
+- hosts: docker
   user: pradip
   become: yes
   connection: ssh
@@ -7,23 +7,19 @@
 
   tasks:
 
-    - name: install tomcat
-      action: get_url url=https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.73/bin/apache-tomcat-9.0.73.zip dest=/mnt/
+    - name: pull an image
+      docker_image:
+        name: tomcat:9
+        source: pull
 
-    - name: unzip tomcat
-      unarchive:
-        src: /mnt/apache-tomcat-9.0.73.zip
-        dest: /mnt/
-        remote_src: yes
+    - name: Start Docker container
+      docker_container:
+        name: tomcat
+        image: tomcat:9
+        ports:
+          - "8080:8080"
+        volumes:
+          - /mnt/project/gameoflife.war:/usr/local/tomcat/webapps
+        state: started
+        restart_policy: always
 
-    - name: copy war
-      action: copy src=/mnt/data/gameoflife-web/target/gameoflife.war dest=/mnt/apache-tomcat-9.0.73/webapps
-      
-    - name: install java
-      command: sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
-
-    - name: permission
-      command: chmod -R 777 /mnt
-
-    - name: start tomcat
-      command: cd  /mnt/apache-tomcat-9.0.73/bin | ./startup.sh
