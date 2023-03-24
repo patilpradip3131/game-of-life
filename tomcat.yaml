@@ -23,11 +23,14 @@
       docker_container:
         name: docker
         state: started
-
+        
+    - name: creating volume
+      file:
+        path: /mnt/data
+        state: directory    
 
     - name: copy
-      action: copy src=/mnt/project/gameoflife-web/target/gameoflife.war dest=/mnt
-
+      action: copy src=/mnt/project/gameoflife-web/target/gameoflife.war dest=/mnt/data
 
     - name: Start Docker container
       docker_container:
@@ -36,7 +39,7 @@
         ports:
           - "8082:8080"
         volumes:
-          - "/mnt:/usr/local/tomcat/webapps"
+          - "/mnt/data:/usr/local/tomcat/webapps"
         state: started
         restart_policy: always
 
