@@ -21,7 +21,7 @@
 
     - name: Start Docker 
       docker_container:
-        name: docker
+        image: docker
         state: started
         
     - name: creating volume
