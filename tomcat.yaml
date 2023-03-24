@@ -7,11 +7,29 @@
 
   tasks:
 
+
     - name: pull an image
       docker_image:
-        name: tomcat:9
+        name: tomcat:9.0.73
+        tag: 9.0.73
         source: pull
-      
+
+    - name: pull an image
+      docker_image:
+        name: docker
+        tag: 1.0
+        source: pull
+
+    - name: Start Docker container
+      docker_container:
+        name: docker
+        image: docker
+        state: started
+
+
+    - name: copy
+      action: copy src=/mnt/project/gameoflife-web/target/gameoflife.war dest=/mnt
+
 
     - name: Start Docker container
       docker_container:
@@ -20,7 +38,7 @@
         ports:
           - "8082:8080"
         volumes:
-          - "/mnt/project/gameoflife-web/target/gameoflife.war:/usr/local/tomcat/webapps"
+          - "/mnt/gameoflife.war:/usr/local/tomcat/webapps"
         state: started
         restart_policy: always
 
