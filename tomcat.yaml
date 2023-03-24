@@ -10,8 +10,8 @@
 
     - name: pull an image
       docker_image:
-        name: tomcat:9.0.73
-        tag: 9.0.73
+        name: tomcat:9
+        tag: 9
         source: pull
 
     - name: pull an image
@@ -22,6 +22,7 @@
     - name: Start Docker 
       docker_container:
         image: docker
+        name: docker-1
         state: started
         
     - name: creating volume
