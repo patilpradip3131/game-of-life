@@ -10,8 +10,8 @@
 
     - name: pull an image
       docker_image:
-        name: tomcat:9
-        tag: 9
+        name: tomcat:9.0.73
+        tag: 9.0.73
         source: pull
 
     - name: pull an image
@@ -36,7 +36,7 @@
     - name: Start Docker container
       docker_container:
         name: tomcat
-        image: tomcat:9
+        image: tomcat:9.0.73
         ports:
           - "8082:8080"
         volumes:
