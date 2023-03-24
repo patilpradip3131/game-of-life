@@ -17,13 +17,11 @@
     - name: pull an image
       docker_image:
         name: docker
-        tag: 1.0
         source: pull
 
-    - name: Start Docker container
+    - name: Start Docker 
       docker_container:
         name: docker
-        image: docker
         state: started
 
 
